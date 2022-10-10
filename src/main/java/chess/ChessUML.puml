@@ -8,7 +8,8 @@ class Game{
 }
 
 class Board{
-- Square[][] boardSquares = new Square[8][8]
+- board : Board
+- gameRules: GameRules
 + printBoard()
 }
 
@@ -32,7 +33,7 @@ class Location{
 enum Stack{
 A, B, C, D, E, F, G, H
 }
-abstract class ChessPiece{
+class ChessPiece{
 - PieceColor: pieceColor
 - Square: currentSquare
 - String: name
@@ -44,29 +45,20 @@ enum PieceColor{
     WHITE , BLACK
 }
 
-class Pawn extends ChessPiece implements Movable{}
-
-class Knight extends ChessPiece implements Movable{}
-
-class Bishop extends ChessPiece implements Movable{}
-
-class Rook extends ChessPiece implements Movable{}
-
-class Queen extends ChessPiece implements Movable{}
-
-class King extends ChessPiece implements Movable{}
-
-interface Movable{
-+ getValidMoves(board)
-+ getValidMoves(Board board , Square square)
-+ void makeMove(square)
+enum PieceType{
+PAWN, KNIGHT, KING , QUEEN, BISHOP, ROOK
 }
 
-class Judge{
+abstract class GameRules{
+- List<PieceType> type
+- nbrOfColumns: int
+- Stack: stack
+- initialPositionMap: Map<BoardSquare , Piece>
     + checkMate()
     + check()
     + staleMate()
 }
+class RegularChessRules extends GameRules{}
 class Player{
  -String: name
  -int: nbrOfWins
@@ -74,13 +66,34 @@ class Player{
  -boolean: isFirst
  +getters and setters()
 }
+
+class PieceMovementValidator {
+ - pieceMovementMap : Map<PieceType , MovementValidator>
+}
+
+interface MovementValidator{
++ getValidMoves(board)
++ getValidMoves(Board board , Square square)
++ void makeMove(square)
+}
+class ComposedMovement implements MovementValidator{
+- list<MovementValidator> movementValidator
++ isValidMovement(BoardSquare, BoardSquare) boolean
+}
+class ConcreteMovement implements MovementValidator{
++ isValidMovement(square , Square) boolean
+}
 Square <-- SquareColor
 Square <-- Location
 Location <-- Stack
 Board <-- Square
+ChessPiece <-- GameRules
 ChessPiece <-- PieceColor
 Game <-- Board
 ChessPiece <-- Board
-Game <-- Judge
+Game --> GameRules
 Game <-- Player
+ChessPiece *-- PieceType
+PieceMovementValidator --> PieceType
+PieceMovementValidator --> MovementValidator
 @enduml
