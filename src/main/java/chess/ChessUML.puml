@@ -1,0 +1,86 @@
+@startuml
+class Game{
+ - Board: board
+ - Player: player1
+ - Player: player2
+
+ + startGame()
+}
+
+class Board{
+- Square[][] boardSquares = new Square[8][8]
++ printBoard()
+}
+
+class Square{
+- Location: location
+- SquareColor : squareColor
+- isOccupied : boolean
++ reset()
++ getters and setters()
+
+}
+enum SquareColor{
+BLACK, WHITE
+}
+
+class Location{
+- Stack: stack
+- int: column
+
+}
+enum Stack{
+A, B, C, D, E, F, G, H
+}
+abstract class ChessPiece{
+- PieceColor: pieceColor
+- Square: currentSquare
+- String: name
+
++ getters()
++ setters()
+}
+enum PieceColor{
+    WHITE , BLACK
+}
+
+class Pawn extends ChessPiece implements Movable{}
+
+class Knight extends ChessPiece implements Movable{}
+
+class Bishop extends ChessPiece implements Movable{}
+
+class Rook extends ChessPiece implements Movable{}
+
+class Queen extends ChessPiece implements Movable{}
+
+class King extends ChessPiece implements Movable{}
+
+interface Movable{
++ getValidMoves(board)
++ getValidMoves(Board board , Square square)
++ void makeMove(square)
+}
+
+class Judge{
+    + checkMate()
+    + check()
+    + staleMate()
+}
+class Player{
+ -String: name
+ -int: nbrOfWins
+ -int: nbrOfMatches
+ -boolean: isFirst
+ +getters and setters()
+}
+Square <-- SquareColor
+Square <-- Location
+Location <-- Stack
+Board <-- Square
+ChessPiece <-- PieceColor
+Game <-- Board
+ChessPiece <-- Board
+Game <-- Judge
+Game <-- Player
+@enduml
