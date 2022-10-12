@@ -1,4 +1,9 @@
 package chess.rules;
 
-abstract class GameRules {
+import chess.board.Board;
+
+public abstract class GameRules {
+    public Board getBoard() {
+        return null;
+    }
 }
