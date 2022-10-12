@@ -7,10 +7,9 @@ class Game{
  + startGame()
 }
 
-class Board{
-- board : Board
-- gameRules: GameRules
-+ printBoard()
+abstract class Board{
+-boardSquare : list<Square>
+-pieceMap: Map<BoardSquare , ChessPiece>
 }
 
 class Square{
@@ -78,7 +77,7 @@ interface MovementValidator{
 }
 class ComposedMovement implements MovementValidator{
 - list<MovementValidator> movementValidator
-+ isValidMovement(BoardSquare, BoardSquare) boolean
++ isValidMovement(Square, Square) boolean
 }
 class ConcreteMovement implements MovementValidator{
 + isValidMovement(square , Square) boolean

@@ -6,5 +6,8 @@ enum PieceType {
     BISHOP,
     KNIGHT,
     PAWN,
-    ROOK
+    ROOK,
+
+    SITHKNIGHT,
+    SITHAPPRENTICE
 }
