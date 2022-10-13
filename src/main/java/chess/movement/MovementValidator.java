@@ -1,8 +1,8 @@
 package chess.movement;
 
-import chess.board.Square;
+import chess.board.Location;
 
 public interface MovementValidator {
 
-//    public boolean isMovementValid(Square init , Square end);
+    public boolean isMovementValid(Location init , Location end);
 }

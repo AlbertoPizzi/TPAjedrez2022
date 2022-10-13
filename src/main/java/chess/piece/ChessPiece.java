@@ -2,8 +2,8 @@ package chess.piece;
 
 public class ChessPiece {
 
-    PieceType pieceType;
-    PieceColor pieceColor;
+   private PieceType pieceType;
+   private PieceColor pieceColor;
 
     public ChessPiece(PieceColor color, PieceType type){
         this.pieceColor = color;
@@ -14,15 +14,8 @@ public class ChessPiece {
         return pieceType;
     }
 
-    public void setPieceType(PieceType pieceType) {
-        this.pieceType = pieceType;
-    }
-
     public PieceColor getPieceColor() {
         return pieceColor;
     }
 
-    public void setPieceColor(PieceColor pieceColor) {
-        this.pieceColor = pieceColor;
-    }
 }

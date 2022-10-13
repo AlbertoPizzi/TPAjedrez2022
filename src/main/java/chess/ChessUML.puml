@@ -8,33 +8,18 @@ class Game{
 }
 
 abstract class Board{
--boardSquare : list<Square>
--pieceMap: Map<BoardSquare , ChessPiece>
-}
-
-class Square{
-- Location: location
-- SquareColor : squareColor
-- isOccupied : boolean
-+ reset()
-+ getters and setters()
-
-}
-enum SquareColor{
-BLACK, WHITE
+-pieceMap: Map<Location , ChessPiece>
 }
 
 class Location{
-- Stack: stack
+- int: line
 - int: column
 
 }
-enum Stack{
-A, B, C, D, E, F, G, H
-}
+
 class ChessPiece{
 - PieceColor: pieceColor
-- Square: currentSquare
+- location: currentSquare
 - String: name
 
 + getters()
@@ -51,7 +36,7 @@ PAWN, KNIGHT, KING , QUEEN, BISHOP, ROOK
 abstract class GameRules{
 - List<PieceType> type
 - nbrOfColumns: int
-- Stack: stack
+- nbrOfLines: int
 - initialPositionMap: Map<BoardSquare , Piece>
     + checkMate()
     + check()
@@ -82,10 +67,7 @@ class ComposedMovement implements MovementValidator{
 class ConcreteMovement implements MovementValidator{
 + isValidMovement(square , Square) boolean
 }
-Square <-- SquareColor
-Square <-- Location
-Location <-- Stack
-Board <-- Square
+Board --> Location
 ChessPiece <-- GameRules
 ChessPiece <-- PieceColor
 Game <-- Board
@@ -96,3 +78,4 @@ ChessPiece *-- PieceType
 PieceMovementValidator --> PieceType
 PieceMovementValidator --> MovementValidator
 @enduml
+//Board es un mapa, que cada location es un Key y la Key tiene un ChessPiece
