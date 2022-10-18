@@ -24,5 +24,9 @@ public class Board {
         return (List<ChessPiece>) board.values();
     }
 
+    public void fillBoard(){
+
+    }
+
 
 }
