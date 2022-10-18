@@ -2,8 +2,7 @@ package chess.movement.concreteMovementValidator;
 
 import chess.board.Location;
 
-public class MoveForward extends ConcreteMovement{
-
+public class HorizontalMovement extends ConcreteMovement{
 
     @Override
     public boolean isMovementValid(Location init, Location end) {

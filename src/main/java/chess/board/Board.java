@@ -17,8 +17,8 @@ public class Board {
         return board;
     }
 
-    public void setBoard(Map<Location, ChessPiece> board) {
-        this.board = board;
+    public void setBoard(Location nlocation) {
+        this.board.put(nlocation, null);
     }
     public List<ChessPiece> getPieces(){
         return (List<ChessPiece>) board.values();

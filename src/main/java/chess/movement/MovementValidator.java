@@ -1,8 +1,9 @@
 package chess.movement;
 
+import chess.board.Board;
 import chess.board.Location;
 
 public interface MovementValidator {
 
-    public boolean isMovementValid(Location init , Location end);
+     boolean isMovementValid(Location init , Location end);
 }
