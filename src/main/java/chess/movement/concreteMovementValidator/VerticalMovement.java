@@ -18,6 +18,7 @@ public class VerticalMovement extends ConcreteMovement{
 
     public void moveVertically(Location init , Location goal){
         if(!isMovementValid(init, goal)) throw new RuntimeException("Movement not valid");
-        board.getBoard().replace(goal, board.getBoard().get(init));
+        board.getBoard().put(goal, board.getBoard().get(init));
+        board.getBoard().remove(init);
     }
 }

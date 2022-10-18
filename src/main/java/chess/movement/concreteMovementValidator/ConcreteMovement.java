@@ -6,5 +6,4 @@ import chess.movement.MovementValidator;
 
 public abstract class ConcreteMovement implements MovementValidator {
     public Board board;
-
 }

@@ -5,5 +5,5 @@ import chess.board.Location;
 
 public interface MovementValidator {
 
-     boolean isMovementValid(Location init , Location end);
+     boolean isMovementValid(Location init , Location goal);
 }
