@@ -10,8 +10,12 @@ import java.util.Map;
 public class Board {
 
     public Map<Location , ChessPiece> board;
-    public Board(){
+    int boardLimitX;
+    int boardLimitY;
+    public Board(int columnLimit, int lineLimit){
         board = new HashMap<>();
+        this.boardLimitX = columnLimit;
+        this.boardLimitY = lineLimit;
     }
 
     public Map<Location, ChessPiece> getBoard() {
@@ -24,5 +28,11 @@ public class Board {
     public List<ChessPiece> getPieces(){
         return (List<ChessPiece>) board.values();
     }
+    public int getBoardLimitX() {
+        return boardLimitX;
+    }
 
+    public int getBoardLimitY() {
+        return boardLimitY;
+    }
 }
