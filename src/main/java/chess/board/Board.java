@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Board {
+
     public Map<Location , ChessPiece> board;
     public Board(){
         board = new HashMap<>();
@@ -23,10 +24,5 @@ public class Board {
     public List<ChessPiece> getPieces(){
         return (List<ChessPiece>) board.values();
     }
-
-    public void fillBoard(){
-
-    }
-
 
 }

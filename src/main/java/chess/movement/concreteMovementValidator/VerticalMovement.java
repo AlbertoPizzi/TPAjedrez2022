@@ -2,8 +2,10 @@ package chess.movement.concreteMovementValidator;
 
 import chess.board.Board;
 import chess.board.Location;
+import chess.movement.MovementValidator;
+import chess.piece.ChessPiece;
 
-public class VerticalMovement extends ConcreteMovement{
+public class VerticalMovement implements MovementValidator {
 
 
     @Override
@@ -17,8 +19,9 @@ public class VerticalMovement extends ConcreteMovement{
     }
 
     public void moveVertically(Location init , Location goal){
+        ChessPiece piece = board.getBoard().get(init);
         if(!isMovementValid(init, goal)) throw new RuntimeException("Movement not valid");
-        board.getBoard().put(goal, board.getBoard().get(init));
+        board.getBoard().put(goal, piece);
         board.getBoard().remove(init);
     }
 }

@@ -1,8 +1,9 @@
 package chess.movement.concreteMovementValidator;
 
 import chess.board.Location;
+import chess.movement.MovementValidator;
 
-public class DiagonalMovement extends ConcreteMovement{
+public class DiagonalMovement implements MovementValidator {
 
     @Override
     public boolean isMovementValid(Location init, Location goal) {

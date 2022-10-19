@@ -1,8 +1,9 @@
 package chess.movement.concreteMovementValidator;
 
 import chess.board.Location;
+import chess.movement.MovementValidator;
 
-public class EatMovement extends ConcreteMovement{
+public class EatMovement implements MovementValidator {
     @Override
     public boolean isMovementValid(Location init, Location goal) {
         if(!board.getBoard().containsKey(goal) ||
