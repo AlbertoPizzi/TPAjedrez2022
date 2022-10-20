@@ -22,4 +22,5 @@ public class RookMV implements MovementValidator {
     public void rookMovement(Location init, Location goal, Board board){
         if(!isMovementValid(init , goal , board)) throw new RuntimeException("Rook can not move there!");
     }
+    //wololo
 }
