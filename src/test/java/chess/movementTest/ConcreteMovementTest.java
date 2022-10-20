@@ -14,21 +14,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 
-class ConcreteMovementTest {
+class ConcreteMovementTest extends MovementTest{
 
-    VerticalMovement verticalMovement = new VerticalMovement();
-    EatMovement eatMovement = new EatMovement();
-    HorizontalMovement horizontalMovement = new HorizontalMovement();
-
-
-    public ChessPiece randomPiece = new ChessPiece(PieceColor.WHITE , PieceType.KING , "randomChessPiece" );
-    public ChessPiece randomPiece2 = new ChessPiece(PieceColor.WHITE , PieceType.KING , "randomChessPiece2" );
-    public ChessPiece randomPiece3 = new ChessPiece(PieceColor.BLACK , PieceType.KING , "randomChessPiece3" );
-    public Location init = new Location(1 , 1);
-    public Location goal = new Location(1 , 3);
-    public Location goal2 = new Location(2 , 1);
-    public Board board = new Board(8 , 8 );
-    public Board board2 = new Board(8 , 8 );
 
     //VERTICAL MOVEMENT
     @Test

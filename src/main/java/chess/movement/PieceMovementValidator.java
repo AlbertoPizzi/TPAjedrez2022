@@ -19,6 +19,9 @@ public class PieceMovementValidator {
            pieceMovementMap.put(pieceType , movementValidator);
        }
     }
+    public Map<PieceType , MovementValidator> getPieceMovementV(){
+        return this.pieceMovementMap;
+    }
     public void swapMovement(PieceType pieceType , MovementValidator oldMove , MovementValidator newMove){
         if (!pieceMovementMap.containsKey(pieceType)) throw new RuntimeException("There's no piece of that type!");
         pieceMovementMap.replace(pieceType , oldMove , newMove);

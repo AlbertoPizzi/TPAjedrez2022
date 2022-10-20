@@ -4,8 +4,8 @@ public class Location {
     private int column;
     private int line;
 
-    public Location(int number, int line) {
-        this.column = number;
+    public Location(int column, int line) {
+        this.column = column;
         this.line = line;
     }
 
